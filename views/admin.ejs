@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="/css/admin.css">
+
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <div class="container">
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    <a href="/">
+                        <img src="/images/ngo_logo_new.png" alt="">
+                    </a>
+                    <h2>Happy Day</br>Foundation</h2>
+                    <div class="close" id="close-btn">
+                        <span class="material-icons-sharp">
+                            close
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="sidebar">
+                <a href="/admin/admin" class="active">
+                    <span class="material-icons-sharp">
+                        home
+                    </span>
+                    <h3>Home</h3>
+                </a>
+
+                <a href="/admin/admin_home">
+                    <span class="material-icons-sharp">
+                        add_home
+                    </span>
+
+                    <h3>Home Page</h3>
+                </a>
+
+                <a href="/admin/admin_about_us">
+                    <span class="material-icons-sharp">
+                        groups_3
+                    </span>
+                    <h3>About Us</h3>
+                </a>
+
+                <a href="/admin/admin_vision">
+                    <span class="material-icons-sharp">
+                        remove_red_eye
+                    </span>
+                    <h3>Vision and Mission</h3>
+                </a>
+
+                <a href="/admin/admin_gallery">
+                    <span class="material-icons-sharp">
+                        collections
+                    </span>
+                    <h3>Gallery</h3>
+                </a>
+
+                <a href="/admin/admin_activity">
+                    <span class="material-icons-sharp">
+                        local_activity
+                    </span>
+                    <h3>Activity</h3>
+                </a>
+
+                <a href="/admin/admin_join_us">
+                    <span class="material-icons-sharp">
+                        handshake
+                    </span>
+                    <h3>Join Us</h3>
+                </a>
+
+                <a href="/admin/social_media">
+                    <span class="material-icons-sharp">
+                        tag
+                    </span>
+                    <h3>Social Media</h3>
+                </a>
+
+                <a href="/admin/admin_header">
+                    <span class="material-icons-sharp">
+                        important_devices
+                    </span>
+                    <h3>Header</h3>
+                </a>
+
+                <a href="/admin/admin_footer">
+                    <span class="material-icons-sharp">
+                        display_settings
+                    </span>
+                    <h3>Footer</h3>
+                </a>
+
+                <a href="/admin/admin_contact_us">
+                    <span class="material-icons-sharp">
+                        perm_phone_msg
+                    </span>
+                    <h3>Contact Details</h3>
+                </a>
+
+
+                <a href="/admin/admin_donation">
+                    <span class="material-icons-sharp">
+                        account_balance
+                    </span>
+                    <h3>Donation Details</h3>
+                </a>
+
+
+                <a href="/admin/slideShowImages">
+                    <span class="material-icons-sharp">
+                        perm_media
+                    </span>
+                    <h3>SlideShow Images</h3>
+                </a>
+
+                <a href="/admin/usersDetails">
+                    <span class="material-icons-sharp">
+                        manage_accounts
+                    </span>
+                    <h3>User Details</h3>
+                </a>
+
+                <a href="/admin/logout">
+                    <span class="material-icons-sharp">
+                        logout
+                    </span>
+                    <h3>Logout</h3>
+                </a>
+            </div>
+        </aside>
+        <main>
+            <div class="right">
+                <div class="top">
+                    <button id="menu-btn">
+                        <span class="material-icons-sharp">
+                            menu
+                        </span>
+                    </button>
+                </div>
+                <div class="theme-toggler">
+                    <span class="material-icons-sharp active">
+                        light_mode
+                    </span>
+                    <span class="material-icons-sharp">
+                        dark_mode
+                    </span>
+                </div>
+            </div>
+
+
+            <h2>Dashboard</h2>
+
+            <div class="insights">
+
+                <div class="sales" id="adminDetailsContainer">
+                        <a href="#" onclick="toggleAdminDetails()">
+                        <span class="material-icons-sharp">
+                            admin_panel_settings
+                        </span>
+                        <div class="middle">
+                            <div class="left">
+                                <h3>Admin Details</h3>
+                                <div class="admin-details">
+                                    <p><strong>Name:</strong> <%= user.name %></p>
+                                    <p><strong>Email:</strong> <%= user.email %></p>
+                                    <!-- Add other admin details as needed -->
+                                  </div>
+                                  <div class="logout">
+                                    <a href="/admin/logout" class="danger">Logout</a>
+                                  </div>
+                            </div>
+                            <div class="progress">
+                            </div>
+                        </div>
+                        <small class="text-muted">Last 24 hrs</small>
+                    </a>
+                    </div>
+                <!-- end of sales -->
+                <div class="sales">
+                    <a href="/admin/social_media">
+                    <span class="material-icons-sharp">
+                        tag
+                    </span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3>Social Media</h3>
+                        </div>
+                        <div class="progress">
+
+                        </div>
+                    </div>
+                    <small class="text-muted">Last 24 hrs</small>
+                </a>
+                </div>
+                <!-- end of sales -->
+                <div class="sales">
+                    <a href="/admin/admin_contact_us">
+                    <span class="material-icons-sharp">
+                        perm_phone_msg
+                    </span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3>Contact Details</h3>
+                        </div>
+                        <div class="progress">
+
+                        </div>
+                    </div>
+                    <small class="text-muted">Last 24 hrs</small>
+                </a>
+                </div>
+                <!-- end of sales -->
+                <div class="sales">
+                    <a href="/admin/admin_donation">
+                    <span class="material-icons-sharp">
+                        account_balance
+                    </span>
+                    <div class="left">
+                        <h3>Donation Details</h3>
+                    </div>
+                    <div class="progress">
+
+                    </div>
+
+                    <small class="text-muted">Last 24 hrs</small>
+                </a>
+                </div>
+                <!-- end of sales -->
+                <div class="sales">
+                    <a href="/admin/usersDetails">
+                    <span class="material-icons-sharp">analytics</span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3>Existing Admin Details</h3>
+                        </div>
+                        <div class="progress">
+                        </div>
+                    </div>
+                    <small class="text-muted">Last 24 hrs</small>
+                </a>
+                </div>
+                <!-- end of sales -->
+                <div class="sales">
+                    <a href="/admin/register">
+                    <span class="material-icons-sharp">
+                        person_add
+                    </span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3>New Admin Registration</h3>
+
+                        </div>
+                        <div class="progress">
+
+                        </div>
+                    </div>
+                    <small class="text-muted">Last 24 hrs</small>
+                </a>
+                </div>
+                <!-- end of sales -->
+
+
+
+            </div>
+
+        </main>
+    </div>
+
+    <script>
+        // JavaScript to toggle the admin details visibility
+        function toggleAdminDetails() {
+          var adminDetailsContainer = document.getElementById('adminDetailsContainer');
+          var adminDetails = adminDetailsContainer.querySelector('.admin-details');
+        
+          if (adminDetails.style.display === 'none' || adminDetails.style.display === '') {
+            adminDetails.style.display = 'block';
+          } else {
+            adminDetails.style.display = 'none';
+          }
+        }
+        </script>
+    <script src="/css/admin_sidebar_script.js"></script>
+</body>
+
+</html>

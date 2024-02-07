@@ -1,0 +1,50 @@
+
+.thankyouBody{
+    text-align: center;
+    align-items:end;
+    /* height: 400px; */
+    width: 100%;
+    /* background-color: #0d6efd; */
+    background-color: rgba(var(--bs-success-rgb), var(--bs-bg-opacity)) !important;
+    font: 900;
+    margin-top: 140px;
+    padding: 30px;
+    /* font-family: 'Times New Roman', Times, serif; */
+    
+}
+.donationDetails{
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    margin: 3% 5%;
+    font-size: x-large;
+}
+
+
+.animate-charcter
+{
+   /* text-transform: uppercase; */
+  background-image: linear-gradient(
+    -225deg,
+    #231557 0%,
+    #44107a 29%,
+    #ff1361 67%,
+    #fff800 100%
+  );
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  /* text-fill-color: transparent; */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 2s linear infinite;
+  display: inline-block;
+      font-size: 80px;
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}

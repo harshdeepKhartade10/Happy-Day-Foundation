@@ -1,0 +1,297 @@
+<!-- edit_home_page_data.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Home Page Data</title>
+  <!-- edit_home_page_data.ejs -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    integrity="sha384-GLhlTQ8iKu1rHN/9IgIaoKtu7qOxlMlZZ9Z50aWNrl5QFsqVA5PQhBvCCNhj" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+
+   <script>
+    $(document).ready(function () {
+      // Function to update contentImageFlags based on image uploads
+      function updateContentImageFlags(element) {
+        const hasImage = element.files.length > 0;
+        const index = $(element).data('index'); // Get the index from data attribute
+        $(`#contentImageFlags${index}`).val(hasImage ? 1 : 0);
+      }
+
+      // Call the function when the file input changes
+      $(document).on('change', "input[id^='contentImage']", function () {
+        updateContentImageFlags(this);
+      });
+
+      // Add new content element on button click
+      $("#addContentElementBtn").click(function () {
+        const currentIndex = $(".contentElementName").length;
+        const newContentElement = `
+          <label for="contentElementName">Content Element Name:</label>
+          <input type="text" class="contentElementName" name="contentElementName[]" required>
+
+          <label for="contentTitle">Content Title:</label>
+          <input type="text" class="contentTitle" name="contentTitle[]" required>
+
+          <label for="contentDescription">Content Description:</label>
+          <textarea class="contentDescription" name="contentDescription[]"></textarea>
+
+          <label for="deleteContentImage">Delete Content Image:</label>
+          <input type="checkbox" class="deleteContentImage" name="deleteContentImage[]" value="${currentIndex}">
+
+          <label for="contentImage">Content Image:</label>
+          <input type="file" class="contentImage" name="contentImage[]" accept="image/*" data-index="${currentIndex}">
+
+          <input type="text" name="contentImageFlags[]" class="contentImageFlags${currentIndex}" value="0">
+
+          <label for="deleteContentElement">Delete Content Element:</label>
+          <input type="checkbox" class="deleteContentElement" name="deleteContentElement[]" value="${currentIndex}">
+
+          <br>
+        `;
+        $("#contentElementsContainer").append(newContentElement);
+
+        // Update contentImageFlags for the newly added element
+        const newElementImageInput = $(`#contentElementsContainer .contentImage[data-index="${currentIndex}"]`)[0];
+        updateContentImageFlags(newElementImageInput);
+      });
+    });
+  </script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+  <link rel="stylesheet" href="/css/edit_slideShowImages.css">
+</head>
+
+<body>
+   <!-- Sidebar -->
+   <div class="container">
+    <aside>
+      <div class="top">
+        <div class="logo">
+            <a href="/">
+                <img src="/images/ngo_logo_new.png" alt="">
+            </a>
+            <h2>Happy Day</br>Foundation</h2>
+            <div class="close" id="close-btn">
+                <span class="material-icons-sharp">
+                    close
+                </span>
+            </div>
+        </div>
+
+    </div>
+      <div class="sidebar">
+        <a href="/admin/admin" class="active">
+          <span class="material-icons-sharp">
+            home
+          </span>
+          <h3>Home</h3>
+        </a>
+
+        <a href="/admin/admin_home">
+          <span class="material-icons-sharp">
+            add_home
+          </span>
+
+          <h3>Home Page</h3>
+        </a>
+
+        <a href="/admin/admin_about_us">
+          <span class="material-icons-sharp">
+            groups_3
+          </span>
+          <h3>About Us</h3>
+        </a>
+
+        <a href="/admin/admin_vision">
+          <span class="material-icons-sharp">
+            remove_red_eye
+          </span>
+          <h3>Vision and Mission</h3>
+        </a>
+
+        <a href="/admin/admin_gallery">
+          <span class="material-icons-sharp">
+            collections
+          </span>
+          <h3>Gallery</h3>
+        </a>
+
+        <a href="/admin/admin_activity">
+          <span class="material-icons-sharp">
+            local_activity
+          </span>
+          <h3>Activity</h3>
+        </a>
+
+        <a href="/admin/admin_join_us">
+          <span class="material-icons-sharp">
+            handshake
+          </span>
+          <h3>Join Us</h3>
+        </a>
+
+        <a href="/admin/social_media">
+          <span class="material-icons-sharp">
+            tag
+          </span>
+          <h3>Social Media</h3>
+        </a>
+
+        <a href="/admin/admin_header">
+          <span class="material-icons-sharp">
+            important_devices
+          </span>
+          <h3>Header</h3>
+        </a>
+
+        <a href="/admin/admin_footer">
+          <span class="material-icons-sharp">
+            display_settings
+          </span>
+          <h3>Footer</h3>
+        </a>
+
+        <a href="/admin/admin_contact_us">
+          <span class="material-icons-sharp">
+            perm_phone_msg
+          </span>
+          <h3>Contact Details</h3>
+        </a>
+
+
+        <a href="/admin/admin_donation">
+          <span class="material-icons-sharp">
+            account_balance
+          </span>
+          <h3>Donation Details</h3>
+        </a>
+
+
+        <a href="/admin/slideShowImages">
+          <span class="material-icons-sharp">
+            perm_media
+          </span>
+          <h3>SlideShow Images</h3>
+        </a>
+
+        <a href="/admin/usersDetails">
+          <span class="material-icons-sharp">
+            manage_accounts
+          </span>
+          <h3>User Details</h3>
+        </a>
+
+        <a href="/admin/logout">
+          <span class="material-icons-sharp">
+            logout
+          </span>
+          <h3>Logout</h3>
+        </a>
+      </div>
+    </aside>
+
+    <div class="right">
+      <div class="top">
+        <button id="menu-btn">
+          <span class="material-icons-sharp">
+            menu
+          </span>
+        </button>
+      </div>
+    </div>
+
+    <div class="container">
+      <main>
+
+  <h1>Edit SlideShow Images Data</h1>
+
+  <form action="/admin/update_slideShowImages?id=<%= data._id %>" method="post" enctype="multipart/form-data">
+    <!-- Render the existing data in the form -->
+
+    <div class="row mt-3">
+      <div class="col-md-4">
+        <label for="pageName">Page Name:</label>
+        <input type="text" class="form-control" id="pageName" name="pageName" value="<%= data.page_name %>" required>
+      </div>
+      <div class="col-md-4">
+        <label for="elementName">Element Name:</label>
+        <input type="text" class="form-control" id="elementName" name="elementName" value="<%= data.element_name %>"
+          required>
+      </div>
+      <div class="col-md-4">
+        <label for="title">Title:</label>
+        <input type="text" class="form-control" id="title" name="title" value="<%= data.top_title %>">
+      </div>
+    </div>
+
+          <!-- Iterate through content elements -->
+<% for (let i = 0; i < data.content.length; i++) { %>
+  <div class="card mt-3">
+    <div class="card-body">
+      <h5 class="card-title">Content Element <%= i + 1 %></h5>
+      <div class="form-group">
+        <label for="contentElementName<%= i %>">Content Element Name:</label>
+        <input type="text" class="form-control" id="contentElementName<%= i %>" name="contentElementName[]" value="<%= data.content[i].content_element_name %>" required>
+      </div>
+
+      <!-- Display existing content images and option to delete -->
+<!-- Display existing content images and option to delete -->
+<% if (data.content[i].content_images && data.content[i].content_images.length > 0) { %>
+  <div class="form-group">
+    <label>Delete Content Image(s):</label>
+    <div class="d-flex flex-wrap">
+      <% for (const contentImage of data.content[i].content_images) { %>
+        <div class="image-checkbox-container mx-2 mb-2">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input deleteContentImageCheckbox" type="checkbox" name="deleteContentImage[]" value="<%= contentImage %>" title="Click to delete the image">
+          </div>
+          <div class="image-thumbnail-container">
+            <img src="/images/<%= contentImage %>" alt="Existing Content Image" class="img-thumbnail resized-image" height="150" width="150">
+          </div>
+        </div>
+      <% } %>
+    </div>
+  </div>
+<% } %>
+
+
+
+
+      <!-- Content Image upload -->
+      <div class="form-group">
+        <label for="contentImage<%= i %>">Content Image:</label>
+        <input type="file" class="form-control-file" id="contentImage<%= i %>" name="contentImage[]" accept="image/*" data-index="<%= i %>">
+      </div>
+
+      <!-- Hidden input field for content image flag -->
+      <input type="hidden" name="contentImageFlags[]" id="<%= `contentImageFlags${i}` %>" value="0">
+
+      <!-- Delete Content Element option -->
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="deleteContentElement[]" value="<%= i %>">
+        <label class="form-check-label" for="deleteContentElement<%= i %>">Delete Content Element</label>
+      </div>
+    </div>
+  </div>
+<% } %>
+
+
+           <!-- Container to hold content elements -->
+           <div id="contentElementsContainer"></div>
+
+           <!-- Button to add a new content element -->
+           <button type="button" id="addContentElementBtn" class="btn btn-primary mt-3">Add New Content Element</button>
+
+    <button type="submit" class="btn btn-success mt-3">Update</button>
+  </form>
+</main>
+
+</div>
+ 
+</body>
+
+</html>

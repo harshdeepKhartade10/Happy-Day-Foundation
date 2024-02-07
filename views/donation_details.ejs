@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Donation Details</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/admin_home.css">
+<link rel="stylesheet" href="/css/donation_details.css">
+
+</head>
+<body>
+
+  <div class="container">
+     <!-- Sidebar -->
+     <div class="container">
+      <aside>
+        <div class="top">
+          <div class="logo">
+              <a href="/">
+                  <img src="/images/ngo_logo_new.png" alt="">
+              </a>
+              <h2>Happy Day</br>Foundation</h2>
+              <div class="close" id="close-btn">
+                  <span class="material-icons-sharp">
+                      close
+                  </span>
+              </div>
+          </div>
+
+      </div>
+        <div class="sidebar">
+          <a href="/admin/admin" class="active">
+            <span class="material-icons-sharp">
+              home
+            </span>
+            <h3>Home</h3>
+          </a>
+  
+          <a href="/admin/admin_home">
+            <span class="material-icons-sharp">
+              add_home
+            </span>
+  
+            <h3>Home Page</h3>
+          </a>
+  
+          <a href="/admin/admin_about_us">
+            <span class="material-icons-sharp">
+              groups_3
+            </span>
+            <h3>About Us</h3>
+          </a>
+  
+          <a href="/admin/admin_vision">
+            <span class="material-icons-sharp">
+              remove_red_eye
+            </span>
+            <h3>Vision and Mission</h3>
+          </a>
+  
+          <a href="/admin/admin_gallery">
+            <span class="material-icons-sharp">
+              collections
+            </span>
+            <h3>Gallery</h3>
+          </a>
+  
+          <a href="/admin/admin_activity">
+            <span class="material-icons-sharp">
+              local_activity
+            </span>
+            <h3>Activity</h3>
+          </a>
+  
+          <a href="/admin/admin_join_us">
+            <span class="material-icons-sharp">
+              handshake
+            </span>
+            <h3>Join Us</h3>
+          </a>
+  
+          <a href="/admin/social_media">
+            <span class="material-icons-sharp">
+              tag
+            </span>
+            <h3>Social Media</h3>
+          </a>
+  
+          <a href="/admin/admin_header">
+            <span class="material-icons-sharp">
+              important_devices
+            </span>
+            <h3>Header</h3>
+          </a>
+  
+          <a href="/admin/admin_footer">
+            <span class="material-icons-sharp">
+              display_settings
+            </span>
+            <h3>Footer</h3>
+          </a>
+  
+          <a href="/admin/admin_contact_us">
+            <span class="material-icons-sharp">
+              perm_phone_msg
+            </span>
+            <h3>Contact Details</h3>
+          </a>
+  
+  
+          <a href="/admin/admin_donation">
+            <span class="material-icons-sharp">
+              account_balance
+            </span>
+            <h3>Donation Details</h3>
+          </a>
+  
+  
+          <a href="/admin/slideShowImages">
+            <span class="material-icons-sharp">
+              perm_media
+            </span>
+            <h3>SlideShow Images</h3>
+          </a>
+  
+          <a href="/admin/usersDetails">
+            <span class="material-icons-sharp">
+              manage_accounts
+            </span>
+            <h3>User Details</h3>
+          </a>
+  
+          <a href="/admin/logout">
+            <span class="material-icons-sharp">
+              logout
+            </span>
+            <h3>Logout</h3>
+          </a>
+        </div>
+      </aside>
+  
+      <div class="right">
+        <div class="top">
+          <button id="menu-btn">
+            <span class="material-icons-sharp">
+              menu
+            </span>
+          </button>
+        </div>
+        <div class="theme-toggler">
+          <span class="material-icons-sharp active">
+              light_mode
+          </span>
+          <span class="material-icons-sharp">
+              dark_mode
+          </span>
+      </div>
+      </div>
+
+
+    
+  <main>
+
+    <h1>Dashboard</h1>
+
+
+    <div class="right1">
+      <div class="donation-amount element1">
+        <h2>Total Donation</h2>
+        <div class="item">
+            <div class="right1">
+                <div class="info">
+                    <h5>DONATION AMOUNT: </h5>
+                    <small class="text-muted">Till Today</small>
+                </div>
+                <h5 class="warning"> <%= totalDonationAmountAll %></h5>
+            </div>
+        </div>
+      </div>
+
+      <div class="donation-amount element2">
+        <h2>Highest Donation</h2>
+        <div class="item">
+            <div class="right1">
+                <div class="info">
+                    <h5>DONATION AMOUNT: </h5>
+                    <small class="text-muted">Till Today</small>
+                </div>
+                <h5 class="success"> <%= highestDonation %></h5>
+            </div>
+        </div>
+      </div>
+
+      <div class="donation-amount element3">
+        <h2>Lowest Donation</h2>
+        <div class="item ">
+            <div class="right1">
+                <div class="info">
+                    <h5>DONATION AMOUNT: </h5>
+                    <small class="text-muted">Till Today</small>
+                </div>
+                <h5 class="danger"> <%= lowestDonation %></h5>
+            </div>
+        </div>
+      </div>
+        </div>
+
+
+
+            <form action="/admin/admin_donation" method="get" class="filter">
+  
+              <label for="startDate" class="primary"><strong>Start Date:</strong></label>
+              <input type="date" id="startDate" name="startDate" class="date">
+            
+              <label for="endDate" class="primary"><strong>End Date:</strong></label>
+              <input type="date" id="endDate" name="endDate" class="date">
+            
+              <button type="submit" class="filter-btn"><strong>Filter Donation</strong></button>
+            </form>
+
+            <form action="/admin/admin_donation" method="get">
+              <button type="submit">Reset</button>
+          </form>
+
+            <div class="insights">
+              
+              <div class="statistics graph1">
+                  <h3 class="primary">Total Donation by each day</h3>
+                  <canvas id="dayChart" data-donation='<%= JSON.stringify(data) %>'></canvas>
+                    <small class="text-muted">Last 24 hrs</small>
+                </div>
+
+                <div class="statistics graph2">
+                  <h3 class="primary">Total Donation by each month</h3>
+                  <canvas id="monthChart"data-donation='<%= JSON.stringify(data) %>'></canvas>
+                    <small class="text-muted">Last 24 hrs</small>
+                </div>
+                
+                <!-- end of income -->
+            </div>
+            <!-- end of insights -->
+            
+
+            <div class="right1">
+              <div class="donation-amount donation-amount-range">
+                <h2>Total Donation Amount (Selected Range)</h2>
+                <div class="item">
+                    <div class="right1">
+                        <div class="info">
+                            <h5>DONATION AMOUNT: </h5>
+                            <small class="text-muted">Selected Range</small>
+                        </div>
+                        <h5 class="danger"> <%= totalDonationAmountRange %></h5>
+                    </div>
+                </div>
+              </div>
+              </div>
+            
+        
+
+  <div class="donation-table">
+    <h2>Donation Details</h2>
+    <table>
+      <thead>
+        <tr>
+          <th><strong>Name</strong></th>
+          <th><strong>E-mail</strong></th>
+          <th><strong>Phone No.</strong></th>
+          <th><strong>Amount</strong></th>
+          <th><strong>Time and Date</strong></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for (const contentElement of data) { %>
+          <tr>
+            <td class="danger">
+              <strong><%= contentElement.name %></strong>
+            </td>
+            <td>
+              <strong><%= contentElement.email %></strong>
+            </td>
+            <td class="primary">
+              <strong><%= contentElement.phoneNo %></strong>
+            </td>
+            <td class="success">
+              <strong><%= contentElement.amount %></strong>
+            </td>
+            <td class="warning">
+              <strong><%= contentElement.time %></strong>
+            </td>  
+          </tr>
+          <% } %>
+      </tbody>
+    </table>
+  </div>
+
+  
+
+</main>
+  
+
+
+
+
+    
+  
+  
+  
+  
+  </div>
+
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Initial graph type
+      let graphType1 = 'day';
+      let graphType2 = 'month';
+  
+      // Retrieve the donation data from the data attribute
+      const data1 = JSON.parse(document.getElementById('dayChart').getAttribute('data-donation'));
+      const data2 = JSON.parse(document.getElementById('monthChart').getAttribute('data-donation'));
+  
+      // Function to update the chart based on the selected graph type
+      window.updateChart = function () {
+        // Retrieve the selected graph type
+        graphType1 = 'day';
+        graphType2 = 'month';
+  
+        // Extract dates and amounts based on the selected graph type
+        let chartData1;
+        if (graphType1 === 'day') {
+          chartData1 = {
+            labels: data1.map(donation => new Date(donation.date).toLocaleDateString()),
+            datasets: [{
+              label: 'Donation Amount',
+              backgroundColor: 'rgba(75, 192, 192, 0.2)',
+              borderColor: 'rgba(75, 192, 192, 1)',
+              borderWidth: 1,
+              data: data1.map(donation => donation.amount),
+            }],
+          };
+        }
+  
+        // Extract month labels and amounts for the chart
+        const groupedData = data2.reduce((accumulator, donation) => {
+          const monthYear = new Date(donation.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long' });
+          if (!accumulator[monthYear]) {
+            accumulator[monthYear] = 0;
+          }
+          accumulator[monthYear] += donation.amount;
+          return accumulator;
+        }, {});
+  
+        const months = Object.keys(groupedData);
+        const amounts = Object.values(groupedData);
+  
+        const chartData2 = {
+          labels: months,
+          datasets: [{
+            label: 'Donation Amount',
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            borderColor: 'rgba(75, 192, 192, 1)',
+            borderWidth: 1,
+            data: amounts,
+          }],
+        };
+  
+        // Get the canvas elements and create charts
+        const ctx1 = document.getElementById('dayChart').getContext('2d');
+        const chart1 = new Chart(ctx1, {
+          type: 'bar',
+          data: chartData1,
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true,
+              },
+            },
+          },
+        });
+  
+        const ctx2 = document.getElementById('monthChart').getContext('2d');
+        const chart2 = new Chart(ctx2, {
+          type: 'bar',
+          data: chartData2,
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true,
+              },
+            },
+          },
+        });
+      };
+  
+      // Initialize the charts
+      updateChart();
+    });
+  </script>
+  
+  
+  <script src="/css/admin_sidebar_script.js"></script>
+
+  
+</body>
+</html>
+
+
+
+
+
+

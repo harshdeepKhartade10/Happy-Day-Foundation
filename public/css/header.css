@@ -1,0 +1,227 @@
+.navbar-nav li{
+    margin-left: 20px;
+}
+.collapse li:hover{
+    font-size: 1.2rem;
+    /* background: #ddd;
+  color: black; */
+}
+.navbar_top{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    /* margin-bottom: 6px; */
+    z-index: 10;
+}
+marquee{
+    direction:"right";
+      behavior:"alternate";
+      margin-bottom: -7px;
+      border:none;
+     /* background-color: #697582; */
+     background-color: #1e88e5;
+     color: white;
+     font-size: 1.3rem;
+     height: 30px;
+}
+.navbar1{
+    max-width:100%;
+    /* width: 100%; */
+    height:80px;
+    /* position: relative; */
+    top: 0px;
+    /* background-color: navajowhite; */
+    background-color: #e7e9ec;
+    display: flex;
+    justify-content: center;
+}
+.logo{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 0;
+}
+.logo img{
+    object-fit: cover;
+    width: 4rem;
+    height: 4rem;
+}
+.org_sec2{
+    /* margin-left: 40px; */
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.org_sec{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.org_sec>img{
+    width: 61px;
+    height: 53px;
+}
+.org{
+    margin-left: 20px;
+    font-size: 3rem;
+    font-family: math;
+}
+@media(min-width:300px) and (max-width:500px){
+    .navbar1{
+        top:24px;
+
+    }
+    .logo{
+        display: flex;
+    align-items: center;
+    position: absolute;
+    left: 0;
+    top: 40px;
+    width: 70px;
+    height: 50px;
+    }
+    .org{
+        margin-left: 20px;
+        font-size: 1.4rem;
+        font-family: math;
+    }
+    .org_sec2{
+        margin-left: 35px;
+    }
+}
+@media(min-width:500px) and (max-width:650px){
+    .org{
+        font-size: 2rem;
+        font-family: math;
+    }
+}
+@media(max-width:300px){
+    .logo{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    justify-content: center;
+    left: 0;
+    top: 11px;
+    height: 37px;
+    width: 51px;
+    }
+    .org{
+        font-size: 1.2rem;
+        font-family: math;
+    }
+}
+@media(max-width:426px){
+    .navbar1{
+        height:55px;
+    }
+    .logo{
+        display: flex;
+        align-items: center;
+        position: absolute;
+        left: 0;
+        top:2rem;
+    }
+    .logo img{
+        object-fit: cover;
+        width: 3rem;
+        height: 3rem;
+    }
+}
+.navbar{
+    background-color: #3379f2;
+}
+/* .Header{
+    position: relative;
+    top: -16px;
+    width: 100%;
+    height: 100px;
+    background-color: aqua;
+} */
+.donate_btn {
+    display: flex;
+    /* background-color: mediumblue; */
+    background-color: #ff6600;
+    border-radius: 10px;
+    padding: 2px 6px;
+}
+.donate_btn li .dropdown-toggle {
+color: white;
+}
+ @media(max-width=765px){
+    .donate_btn:hover{
+        
+        width: 100%;
+        transition: width 15s ease-in;
+    }
+}
+@media(min-width=765px){
+.donate_btn:hover{
+    /* font-size: 20px; */
+    /* box-shadow: 0 12px 16px 0 rgba(60, 21, 203, 0.24), 0 17px 50px 0 rgba(213, 55, 174, 0.19); */
+    
+    width: 150px;
+    transition: width 15s ease-in;
+}
+}
+
+
+
+
+.stickyicon-list {   
+    position: fixed;   
+    top: 50%;
+    left: 0;   
+    transform: translateY(-50%);         
+    z-index: 11;    
+    }   
+@media (max-width:1032px){
+    .stickyicon-list{
+        display: none;
+    }
+}      
+    .stickyicon-list a {   
+    display: block;   
+    text-align: center;   
+    padding: 8px;   
+    transition: all 0.5s ease;   
+    color: white;   
+    font-size: 20px;   
+    }         
+    /* HOver affect on sticky social media icons */   
+    .stickyicon-list a:hover {   
+    color: #000;   
+    width:10px;   
+    }   
+       
+    /* Now we have to design each icon of social media */         
+    .facebook {   
+    background: #3b5998;   
+    color: white;  
+    }         
+    .twitter {   
+    color: white;   
+    background: #00acee;   
+    }   
+    .linkedin {   
+    background: #0e76a8;   
+    color: white;   
+    }         
+    .google {   
+    color: white;   
+    background: #db4a39;   
+    }   
+    .instagram {   
+    background: #3f729b;   
+    color: white;   
+    }         
+    .youtube {   
+    color: white;   
+    background: #c4302b;    
+    }   
+#img{
+    width:100%;
+    height:100%;
+    /* object-fit: contain; */
+}

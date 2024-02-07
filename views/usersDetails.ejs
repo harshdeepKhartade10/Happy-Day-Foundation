@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Admin Page</title>
+
+  <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script> -->
+ 
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+  <style>
+    
+
+    h1,
+    h2 {
+      color: #007bff;
+    }
+
+    table {
+      width: 100%;
+      margin-bottom: 20px;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      padding: 12px;
+      text-align: left;
+      border: 1px solid #ddd;
+    }
+
+    th {
+      /* background-color: #007bff; */
+      /* color: white; */
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .content-elements {
+      margin-bottom: 20px;
+    }
+
+    .content-element {
+      margin-bottom: 20px;
+    }
+
+    /* Styling for form labels and inputs */
+    label {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    input[type="text"],
+    textarea,
+    input[type="file"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      box-sizing: border-box;
+    }
+
+    /* Center the form and limit its width */
+    form {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Styling for buttons */
+    .btn-primary {
+      margin-right: 10px;
+    }
+
+    /* Styling for edit and delete buttons */
+    .edit-btn,
+    .delete-btn {
+      display: inline-block;
+      padding: 8px 12px;
+      margin: 5px 0;
+      cursor: pointer;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+
+    .edit-btn {
+      background-color: #28a745;
+    }
+
+    .delete-btn {
+      background-color: #dc3545;
+    }
+
+    .edit-btn:hover,
+    .delete-btn:hover {
+      background-color: #218838;
+    }
+
+     /* Styling for information icons */
+  .info-icon {
+    margin-left: 5px;
+    color: #007bff;
+    background-color: black;
+    cursor: help; /* Change cursor to a question mark */
+  }
+
+  
+  </style>
+   
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-GLhlTQ8iKu1rHN/9IgIaoKtu7qOxlMlZZ9Z50aWNrl5QFsqVA5PQhBvCCNhj" crossorigin="anonymous">
+   
+   <link rel="stylesheet" href="/css/admin_home.css">
+  
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <div class="container">
+      <aside>
+        <div class="top">
+          <div class="logo">
+              <a href="/">
+                  <img src="/images/ngo_logo_new.png" alt="">
+              </a>
+              <h2>Happy Day</br>Foundation</h2>
+              <div class="close" id="close-btn">
+                  <span class="material-icons-sharp">
+                      close
+                  </span>
+              </div>
+          </div>
+
+      </div>
+        <div class="sidebar">
+          <a href="/admin/admin" class="active">
+            <span class="material-icons-sharp">
+              home
+            </span>
+            <h3>Home</h3>
+          </a>
+  
+          <a href="/admin/admin_home">
+            <span class="material-icons-sharp">
+              add_home
+            </span>
+  
+            <h3>Home Page</h3>
+          </a>
+  
+          <a href="/admin/admin_about_us">
+            <span class="material-icons-sharp">
+              groups_3
+            </span>
+            <h3>About Us</h3>
+          </a>
+  
+          <a href="/admin/admin_vision">
+            <span class="material-icons-sharp">
+              remove_red_eye
+            </span>
+            <h3>Vision and Mission</h3>
+          </a>
+  
+          <a href="/admin/admin_gallery">
+            <span class="material-icons-sharp">
+              collections
+            </span>
+            <h3>Gallery</h3>
+          </a>
+  
+          <a href="/admin/admin_activity">
+            <span class="material-icons-sharp">
+              local_activity
+            </span>
+            <h3>Activity</h3>
+          </a>
+  
+          <a href="/admin/admin_join_us">
+            <span class="material-icons-sharp">
+              handshake
+            </span>
+            <h3>Join Us</h3>
+          </a>
+  
+          <a href="/admin/social_media">
+            <span class="material-icons-sharp">
+              tag
+            </span>
+            <h3>Social Media</h3>
+          </a>
+  
+          <a href="/admin/admin_header">
+            <span class="material-icons-sharp">
+              important_devices
+            </span>
+            <h3>Header</h3>
+          </a>
+  
+          <a href="/admin/admin_footer">
+            <span class="material-icons-sharp">
+              display_settings
+            </span>
+            <h3>Footer</h3>
+          </a>
+  
+          <a href="/admin/admin_contact_us">
+            <span class="material-icons-sharp">
+              perm_phone_msg
+            </span>
+            <h3>Contact Details</h3>
+          </a>
+  
+  
+          <a href="/admin/admin_donation">
+            <span class="material-icons-sharp">
+              account_balance
+            </span>
+            <h3>Donation Details</h3>
+          </a>
+  
+  
+          <a href="/admin/slideShowImages">
+            <span class="material-icons-sharp">
+              perm_media
+            </span>
+            <h3>SlideShow Images</h3>
+          </a>
+  
+          <a href="/admin/usersDetails">
+            <span class="material-icons-sharp">
+              manage_accounts
+            </span>
+            <h3>User Details</h3>
+          </a>
+  
+          <a href="/admin/logout">
+            <span class="material-icons-sharp">
+              logout
+            </span>
+            <h3>Logout</h3>
+          </a>
+        </div>
+      </aside>
+  
+      <div class="right">
+        <div class="top">
+          <button id="menu-btn">
+            <span class="material-icons-sharp">
+              menu
+            </span>
+          </button>
+        </div>
+      </div>
+
+
+      <main>
+  <h1>Existing Users Details</h1>
+
+              <!-- Display Existing Data in a Table -->
+              <h2 class="mt-4">Existing Data</h2>
+              <table class="table table-bordered table-hover">
+                <thead class="thead-light">
+                  <tr>
+                    <th>Username</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% for (const contentElement of data) { %>
+                    <tr>
+                      <td>
+                        <%= contentElement.username %>
+                      </td>
+                      <td>
+                        <% if (data.length > 1) { %>
+                          <form action="/admin/delete_existing_user" method="post" style="display:inline;">
+                            <input type="hidden" name="id" value="<%= contentElement._id %>">
+                            <a href="/admin/confirm-delete/<%= contentElement._id %>" class="delete-btn">Delete</a>
+                          </form>
+                        <% } else { %>
+                          <!-- Display a disabled button and a message -->
+                          <button type="button" class="delete-btn" disabled>Delete</button>
+                          <span class="text-muted">At least 1 admin should exist.</span>
+                        <% } %>
+                      </td>
+                    </tr>
+                  <% } %>
+                  
+                </tbody>
+              </table>
+
+            </main>
+
+            <script src="/css/admin_sidebar_script.js"></script>  
+</body>
+
+</html>
+
+
+

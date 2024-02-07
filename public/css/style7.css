@@ -1,0 +1,69 @@
+html {
+    overflow-x: hidden;
+}
+body{
+    background-color: black;
+    /* overflow-x: hidden; */
+}
+*{
+    margin: 0;
+    font-family: Arial;
+    border: border-box;  
+    scroll-behavior: smooth; 
+}
+
+.row1{
+    display: flex;
+    margin-top: 140px;
+}
+.row1img img{
+    width: 100%;
+    height: 100%;
+}
+.row1img{
+    width: 100%;
+    height: 400px;
+}
+/* .ttl{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+} */
+.row2{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+.aboutvoltr{
+    width: 80%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.row2 h2{
+    text-align: center;
+}
+.volbtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+    margin-top: 20px;
+}
+.regbtn a{
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background-color: #3498db;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+
+  /* Hover effect */
+  .regbtn a:hover {
+    background-color: #2980b9; /* New background color on hover */
+  }

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style3.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+</html>
+</head>
+<body>
+  <%- include("partials/header.ejs", { headerData: data.headerData,socialMediaData: data.socialMediaData }) %>
+      <% if (data.visionData.element_name === 'vision_and_mission') { %>
+        <img class="BackgroundImages"  src="/images/<%= data.visionData.top_image %>" alt="Existing Content Image">
+    <% } %>
+    <div class="vission animation-target">
+      <% for (const contentElement of data.visionData.content) { %>
+        <% if (contentElement.content_element_name === 'vision') { %>
+           <h1> <%= contentElement.content_title %></h1>
+        <% } %>
+      <% } %>
+          <% for (const contentElement of data.visionData.content) { %>
+            <% if (contentElement.content_element_name === 'vision') { %>
+              <% for (const contentImage of contentElement.content_images) { %>
+                <img src="/images/<%= contentImage %>" alt="Vision Image">
+              <% } %>
+            <% } %>
+          <% } %>
+          <p class="P1">
+            <% for (const contentElement of data.visionData.content) { %>
+              <% if (contentElement.content_element_name === 'vision') { %>
+                <% const descriptionLines = contentElement.content_description.split('.'); %>
+                <% descriptionLines.forEach((line) => { %>
+                  <%= line %><br>
+                <% }); %>
+              <% } %>
+            <% } %>
+          </p>     
+    </div>
+    <div class="mission animation-target">
+      <% for (const contentElement of data.visionData.content) { %>
+        <% if (contentElement.content_element_name === 'mission') { %>
+           <h1> <%= contentElement.content_title %></h1>
+        <% } %>
+      <% } %>
+        <% for (const contentElement of data.visionData.content) { %>
+          <% if (contentElement.content_element_name === 'mission') { %>
+            <% for (const contentImage of contentElement.content_images) { %>
+              <img src="/images/<%= contentImage %>" alt="Mission Image">
+            <% } %>
+          <% } %>
+        <% } %>
+        <p class="P2">
+          <% for (const contentElement of data.visionData.content) { %>
+            <% if (contentElement.content_element_name === 'mission') { %>
+              <% const descriptionLines = contentElement.content_description.split('.'); %>
+              <% descriptionLines.forEach((line) => { %>
+                <%= line %><br>
+              <% }); %>
+            <% } %>
+          <% } %>
+        </p>
+    </div>
+
+
+   
+    <!-- <h2>Supporting Education:</h2> -->
+    <!-- <h2 class="N1">Supporting Education:</h2>
+    <br>
+    <div class="sec1">
+    <p class="inf">
+        Our education projects are focused on developing 21st-century life skills in students 
+        by providing them with vibrant experiences through research projects or capacity building workshops. 
+        Our focus is to work towards Sustainable Development Goal 4 (Ensure inclusive and equitable quality education and promote lifelong learning opportunities for all). 
+        It overall contributes to basic education, democracy, facilitating lifelong learning, improving quality of life and promotion of peace.
+    </p>
+        <img src="/css/s1.jpg" alt="">
+    </div>
+    
+    <h2 class="N1">Creating Livelihood:</h2>
+    <br>
+    <div class="sec2">
+        <img src="/css/s3.jpg" alt="">
+        <p class="inf">
+            We do this through initiatives that equip village youths, women, 
+            artisans and other stakeholders with digital skills, financial literacy and 
+            marketing techniques, equitable participation, technological support, vocational training, and the implementation of innovative best practices.
+            Capacity development needs a special focus on simultaneously building life skills and vocational skills in the young adults of the hill region. 
+            This will safeguard the Himalayan state against excessive migration and uprooting of the social fabric.
+        </p>
+    </div>
+    <
+    <h2 class="N1">TayyariKalKi:</h2>
+    <br>
+    <div class="sec3">
+        <p class="inf">
+            A secure livelihood helps people get out of poverty. While employability has always been a challenge for the under-privileged, 
+            the pandemic followed by job losses and massive pay-cuts further pushed them into destitution.
+            The effect of the pandemic on the livelihoods of people belonging to the lesser privileged sections has been profound and long lasting.  
+            Smile Foundation, recognizing the need of the hour has reprogrammed its employability training initiative 'STeP' to fight the challenges posed by poverty and unemployment.
+            21st-Century Skills: Focusing on developing 21st-century life skills in students through vibrant experiences.
+        </p>
+        <img src="/css/s2.jpg" alt="">
+    </div> -->
+    <%- include("partials/footer.ejs",{footerData: data.footerData, socialMediaData: data.socialMediaData ,contactUsData: data.contactUsData}) %>
+</body>
+</html>

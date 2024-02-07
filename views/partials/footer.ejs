@@ -1,0 +1,148 @@
+
+
+
+
+
+
+
+
+
+
+<footer>
+    <div>
+      <div class="follow">
+        <div class="row11">
+          <div class="fcol1">
+            <div class="flw">
+              <% for (const contentElement of footerData.content) { %>
+                <% if(contentElement.content_element_name === 'follow') {%>
+              <h2><%= contentElement.content_title %>
+              </h2>
+              <% } %>
+              <% } %>
+              <ul>
+                  <% for (const contentElement of socialMediaData.content) { %>
+                    <li>
+                      <% if(contentElement.content_title === 'youtube') {%>
+                        <a href="<%= contentElement.content_description %>">
+                          <i class="fa fa-<%= contentElement.content_title %>"></i>
+                        </a>
+                      <% }else if(contentElement.content_title === 'linkedin') {%>
+                          <a style="color: aliceblue;" href="<%= contentElement.content_description %>">
+                            <i class="fa fa-<%= contentElement.content_title %>"></i>
+                          </a>
+                        <% }else{%>
+                    <a href="<%= contentElement.content_description %>">
+                      <i class="fa fa-<%= contentElement.content_title %>"></i>
+                    </a>
+                    <% } %>
+                  </li>
+                        <% } %>
+
+                         
+                 
+                <!-- <li>
+                  <a href="https://www.facebook.com/smilefoundationindia.org">
+                    <i class="fa fa-facebook"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://twitter.com/smilefoundation">
+                    <i class="fa fa-twitter"></i>
+                  </a>
+                </li>
+                <li>
+                  <a style="color: aliceblue;" href="https://www.linkedin.com/company/smile-foundation">
+                    <i class="fa fa-linkedin"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.youtube.com/user/tubeforchange">
+                    <i class="fa fa-youtube-play"></i>
+                  </a>
+                </li> -->
+              </ul>
+            </div>
+          </div>
+          <div class="fcol2" id="contactusfooter">
+            <div class="col2_txt">
+              <div class="supporttitle">
+                <h2>Support us</h2>
+              </div>
+              <div class="support">
+                <ul class="nav navbar-nav navbar-right outerbtn footer_donate">
+                
+                  <li class="nav-item dropdown ">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                      Donate
+                    </a>
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item" href="/public/donate">Education</a>
+                      <a class="dropdown-item" href="/public/donate">Health</a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="fcol3">
+            <ul class="con">
+              <!-- <li>Contact us</li> -->
+              <li><%= contactUsData.top_title %>
+              </li>      
+              <br>
+              <!-- <li>Lorem ipsum <br>dolor sit amet, consectetur adipisicing elit. Sit <br> possimus laborum nam architecto -->
+                <!-- culpa quibusdam <br> ducimus magnam dicta maxime hic!</li> -->
+                <li><%= contactUsData.top_description %>
+
+              <br>
+              <li>
+                <i class="fa fa-whatsapp mr-3" aria-hidden="true"></i>
+                <!-- +91 9999999999 -->
+                  <% if(contactUsData.element_name === 'contact_us') {%>
+                    <a href="/"><%= contactUsData.dynamicProperties.whatsappNo %>
+                    </a>
+                <% } %>
+              </li>
+              <li>
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <!-- <a href="/">abc@gmail.com</a> -->
+                  <% if(contactUsData.element_name === 'contact_us') {%>
+                    <a href="/"><%= contactUsData.dynamicProperties.email1 %>
+                    </a>
+                <% } %>
+
+              </li>
+              <li>
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <!-- <a href="/">main@gmail.com</a> -->
+                  <% if(contactUsData.element_name === 'contact_us') {%>
+                    <a href="/"><%= contactUsData.dynamicProperties.email2 %>
+                    </a>
+                <% } %>
+              </li>
+              <br>
+              <li>
+                <i class="fa fa-phone" aria-hidden="true"></i>
+                <!-- <a href="/">+91 8876678568</a> -->
+                  <% if(contactUsData.element_name === 'contact_us') {%>
+                    <a href="/"><%= contactUsData.dynamicProperties.phoneNo %>
+                    </a>
+                <% } %>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+     
+      <div class="backtop">
+        <a href="#">Back to top</a>
+        <i class="fa fa-angle-up"></i>
+      </div>
+    </div>
+    <div class="row2">
+      <p class="copyright">© Copyright 2023 swapnil. All rights reserved</p>
+    </div>
+  </footer>
+
+  <script src="/css/common_script_text.js"></script>

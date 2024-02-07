@@ -1,0 +1,168 @@
+
+/* .Header{
+    position: relative;
+    top: -16px;
+    width: 100%;
+    height: 100px;
+    background-color: aqua;
+} */
+.donate_btn {
+    display: flex;
+    /* background-color: mediumblue; */
+    background-color: #ff6600;
+    border-radius: 10px;
+    padding: 2px 6px;
+}
+.donate_btn li .dropdown-toggle {
+color: white;
+}
+.donate_btn:hover{
+    /* font-size: 20px; */
+    /* box-shadow: 0 12px 16px 0 rgba(60, 21, 203, 0.24), 0 17px 50px 0 rgba(213, 55, 174, 0.19); */
+    width: 150px;
+    transition: width 15s ease-in;
+}
+.donation-form {
+    margin: 20px;
+    padding: 20px;
+    /* border: 1px solid #ccc; */
+    height: 100vh;
+}
+
+label, input, select {
+    display: block;
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+#donation{
+    padding-top:9%;
+
+}
+input {
+    background: transparent;
+    border: 1px solid #ccc; /* You can adjust the border style as needed */
+}
+.donation-form{
+
+    height: 100vh;
+
+}
+.cover{
+    object-fit: cover;
+    width:100%;
+    height: 100vh !important; 
+    /* margin: 20px; */
+    padding: 20px;
+    border: 1px solid #ccc;
+    height: 100vh;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    opacity: 0.9;
+}
+#donation button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    margin-top: 15px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+.donate-frm{
+    background-color: #fff;
+    opacity: 90%;
+    width: 30%;
+    height: 70vh;
+    /* height: auto; */
+    box-sizing: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-left:38%;
+    margin-top: 7%;
+}
+
+#donate h1, h2, p, ul, li, label, input, select, button {
+    margin: 0;
+    padding: 0;
+}
+#donation .donation-levels {
+    margin: 20px;
+}
+
+#donation ul {
+    list-style: none;
+    padding: 0;
+}
+
+#donation li {
+    /* border: 1px solid #ccc; */
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+#donation .impact {
+    margin: 20px;
+    padding: 20px;
+}
+
+@media(max-width:1440px){
+    .donate-frm{
+        margin-top: 10%;
+    }
+}
+@media(max-width:1024px){
+    .donate-frm{
+        margin-top: 10%;
+        width: 45%;
+        margin-left:30%;
+    }
+}
+@media (max-width: 768px) {
+    .cover{
+        position: absolute;
+        top:27%;
+    }
+    #donation {
+        padding-top: 3%; 
+    }
+
+    .donate-frm {
+        margin: 25% auto;
+        height: 90vh;
+        width:80%; /* Center the form with more space on top */
+    }
+    .payment_form{
+        margin:20% auto;
+    }
+
+    .text-center {
+        text-align: center!important;
+        margin-top: 35%;
+    }
+}
+
+@media(max-width:426px){
+    .donate-frm {
+        margin: 50% auto !important;
+        height: 90vh;
+        width:80%; /* Center the form with more space on top */
+    }
+    .text-center {
+        text-align: center!important;
+        margin-top: 75%;
+    }
+}
+
+
+

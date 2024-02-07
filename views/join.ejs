@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style7.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+  <%- include("partials/header.ejs", { headerData: data.headerData,socialMediaData: data.socialMediaData }) %>
+
+    <div class="row1">
+        <div class="row1img">
+            <img src="https://www.narayanseva.org/wp-content/uploads/2022/11/volunteer-banner-with-shadow.png" alt="">
+        </div>
+    </div>
+    <section class="row2">
+        <div class="aboutvoltr">
+            <div class="volunteer_info animation-target">
+                <% for (const contentElement of data.joinData.content) { %>
+                  <% if (contentElement.content_element_name === 'volunteer') { %>
+                    <h2> <%= contentElement.content_title %></h2>
+                  <% } %>
+                <% } %>
+                    <% for (const contentElement of data.joinData.content) { %>
+                      <% if (contentElement.content_element_name === 'volunteer') { %>
+                        <p> <%= contentElement.content_description %></p>
+                      <% } %>
+                    <% } %>
+            </div>
+            <div class="becom_vol animation-target">
+              <% for (const contentElement of data.joinData.content) { %>
+                <% if (contentElement.content_element_name === 'become_volunteer') { %>
+                  <h2> <%= contentElement.content_title %></h2>
+                <% } %>
+              <% } %>
+                  <% for (const contentElement of data.joinData.content) { %>
+                    <% if (contentElement.content_element_name === 'become_volunteer') { %>
+                      <p> <%= contentElement.content_description %></p>
+                    <% } %>
+                  <% } %>
+            </div>
+            <div class="benefit animation-target">
+              <% for (const contentElement of data.joinData.content) { %>
+                <% if (contentElement.content_element_name === 'benifits') { %>
+                  <h2> <%= contentElement.content_title %></h2>
+                <% } %>
+              <% } %>
+                  <% for (const contentElement of data.joinData.content) { %>
+                    <% if (contentElement.content_element_name === 'benifits') { %>
+                      <p> <%= contentElement.content_description %></p>
+                    <% } %>
+                  <% } %>
+            </div>
+        </div>
+    </section>
+    <div class="volbtn">
+      <div class="regbtn">
+        <!-- <a href="https://docs.google.com/forms/d/e/1FAIpQLSdeuCEpFvxgwPmX8kaXXPAuVTfTRFrri_oZX174J21dGUWdRw/viewform?usp=sf_link" >Become volunteer</a> -->
+            <% for (const contentElement of data.joinData.content) { %>
+              <% if (contentElement.content_element_name === 'join_us_link') { %>
+                <a href="<%= contentElement.content_description %>" >Become volunteer</a>
+              <% } %>
+            <% } %>
+      </div>
+    </div>
+    <%- include("partials/footer.ejs",{footerData: data.footerData, socialMediaData: data.socialMediaData ,contactUsData: data.contactUsData}) %>
+</body>
+
+</html>

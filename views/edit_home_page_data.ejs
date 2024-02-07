@@ -1,0 +1,386 @@
+<!-- edit_home_page_data.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Home Page Data</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <!-- edit_home_page_data.ejs -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+    integrity="sha384-oVrE5KnuI7ziCe7WjoT9gy3OiJ6ZiLXf+bs5nGR2sN4nPoNxf/9g4dp6G3fBjip" crossorigin="anonymous"></script>
+  <script>
+    $(document).ready(function () {
+      // Function to update contentImageFlags based on image uploads
+      function updateContentImageFlags(element) {
+        const hasImage = element.files.length > 0;
+        const index = $(element).data('index'); // Get the index from data attribute
+        $(`#contentImageFlags${index}`).val(hasImage ? 1 : 0);
+      }
+
+      // Call the function when the file input changes
+      $(document).on('change', "input[id^='contentImage']", function () {
+        updateContentImageFlags(this);
+      });
+
+      // Add new content element on button click
+      $("#addContentElementBtn").click(function () {
+        const currentIndex = $(".contentElementName").length;
+        const newContentElement = `
+          <div class="row mt-3">
+            <div class="col-md-4">
+              <label for="contentElementName">Content Element Name:</label>
+              <input type="text" class="form-control contentElementName" name="contentElementName[]" required>
+            </div>
+            <div class="col-md-4">
+              <label for="contentTitle">Content Title:</label>
+              <input type="text" class="form-control contentTitle" name="contentTitle[]" required>
+            </div>
+            <div class="col-md-4">
+              <label for="contentDescription">Content Description/Link:</label>
+              <textarea class="form-control contentDescription" name="contentDescription[]"></textarea>
+            </div>
+
+            <div class="col-md-4 mt-3">
+              <label for="deleteContentImage">Delete Content Image:</label>
+              <input type="checkbox" class="deleteContentImage" name="deleteContentImage[]" value="${currentIndex}">
+            </div>
+            <div class="col-md-4 mt-3">
+              <label for="contentImage">Content Image:</label>
+              <input type="file" class="form-control contentImage" name="contentImage[]" accept="image/*"
+                data-index="${currentIndex}">
+              <input type="hidden" name="contentImageFlags[]" class="contentImageFlags${currentIndex}" value="0">
+            </div>
+            <div class="col-md-4 mt-3">
+              <label for="deleteContentElement">Delete Content Element:</label>
+              <input type="checkbox" class="deleteContentElement" name="deleteContentElement[]" value="${currentIndex}">
+            </div>
+          </div>
+        `;
+        $("#contentElementsContainer").append(newContentElement);
+
+        // Update contentImageFlags for the newly added element
+        const newElementImageInput = $(`#contentElementsContainer .contentImage[data-index="${currentIndex}"]`)[0];
+        updateContentImageFlags(newElementImageInput);
+      });
+    });
+  </script>
+
+<style>
+  .image-checkbox-container {
+    display: inline-block;
+    margin-right: 10px;
+    position: relative;
+  }
+
+  .deleteContentImageCheckbox {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    cursor: pointer;
+  }
+
+  .image-thumbnail-container {
+    position: relative;
+    display: inline-block;
+    margin-top: 5px;
+  }
+
+  .resized-image {
+    width: auto;
+    height: 70px; /* Adjust the height as needed */
+  }
+
+  .deleteContentImageCheckbox:hover + .image-thumbnail-container::before {
+    content: "Click to delete the image";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+  .custom-tooltip {
+  --bs-tooltip-bg: var(--bd-violet-bg);
+  --bs-tooltip-color: var(--bs-white);
+}
+</style>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+<link rel="stylesheet" href="/css/admin_home.css">
+</head>
+
+<body>
+
+
+  <div class="container mt-5">
+
+      <!-- Sidebar -->
+      <div class="container">
+        <aside>
+          <div class="top">
+            <div class="logo">
+                <a href="/">
+                    <img src="/images/ngo_logo_new.png" alt="">
+                </a>
+                <h2>Happy Day</br>Foundation</h2>
+                <div class="close" id="close-btn">
+                    <span class="material-icons-sharp">
+                        close
+                    </span>
+                </div>
+            </div>
+
+        </div>
+          <div class="sidebar">
+            <a href="/admin/admin" class="active">
+              <span class="material-icons-sharp">
+                home
+              </span>
+              <h3>Home</h3>
+            </a>
+    
+            <a href="/admin/admin_home">
+              <span class="material-icons-sharp">
+                add_home
+              </span>
+    
+              <h3>Home Page</h3>
+            </a>
+    
+            <a href="/admin/admin_about_us">
+              <span class="material-icons-sharp">
+                groups_3
+              </span>
+              <h3>About Us</h3>
+            </a>
+    
+            <a href="/admin/admin_vision">
+              <span class="material-icons-sharp">
+                remove_red_eye
+              </span>
+              <h3>Vision and Mission</h3>
+            </a>
+    
+            <a href="/admin/admin_gallery">
+              <span class="material-icons-sharp">
+                collections
+              </span>
+              <h3>Gallery</h3>
+            </a>
+    
+            <a href="/admin/admin_activity">
+              <span class="material-icons-sharp">
+                local_activity
+              </span>
+              <h3>Activity</h3>
+            </a>
+    
+            <a href="/admin/admin_join_us">
+              <span class="material-icons-sharp">
+                handshake
+              </span>
+              <h3>Join Us</h3>
+            </a>
+    
+            <a href="/admin/social_media">
+              <span class="material-icons-sharp">
+                tag
+              </span>
+              <h3>Social Media</h3>
+            </a>
+    
+            <a href="/admin/admin_header">
+              <span class="material-icons-sharp">
+                important_devices
+              </span>
+              <h3>Header</h3>
+            </a>
+    
+            <a href="/admin/admin_footer">
+              <span class="material-icons-sharp">
+                display_settings
+              </span>
+              <h3>Footer</h3>
+            </a>
+    
+            <a href="/admin/admin_contact_us">
+              <span class="material-icons-sharp">
+                perm_phone_msg
+              </span>
+              <h3>Contact Details</h3>
+            </a>
+    
+    
+            <a href="/admin/admin_donation">
+              <span class="material-icons-sharp">
+                account_balance
+              </span>
+              <h3>Donation Details</h3>
+            </a>
+    
+    
+            <a href="/admin/slideShowImages">
+              <span class="material-icons-sharp">
+                perm_media
+              </span>
+              <h3>SlideShow Images</h3>
+            </a>
+    
+            <a href="/admin/usersDetails">
+              <span class="material-icons-sharp">
+                manage_accounts
+              </span>
+              <h3>User Details</h3>
+            </a>
+    
+            <a href="/admin/logout">
+              <span class="material-icons-sharp">
+                logout
+              </span>
+              <h3>Logout</h3>
+            </a>
+          </div>
+        </aside>
+    
+        <div class="right">
+          <div class="top">
+            <button id="menu-btn">
+              <span class="material-icons-sharp">
+                menu
+              </span>
+            </button>
+          </div>
+        </div>
+        <main>
+
+    <% if (data.element_name === 'home_page') { %>
+    <h1>Edit Home Page Data</h1>
+    <% } else if (data.element_name === 'about_us') { %>
+    <h1>Edit About Us Page Data</h1>
+    <% } else if (data.element_name === 'vision_and_mission') { %>
+    <h1>Edit Vision and Mission Page Data</h1>
+    <% } else if (data.element_name === 'gallery') { %>
+    <h1>Edit Gallery Page Data</h1>
+    <% } else if (data.element_name === 'activity') { %>
+    <h1>Edit Activity Page Data</h1>
+    <% } %>
+    <form action="/admin/update_home_page_data?id=<%= data._id %>" method="post" enctype="multipart/form-data">
+
+      <!-- Render the existing data in the form -->
+      <!-- Top Details -->
+      <div class="row mt-3">
+        <div class="col-md-4">
+          <label for="pageName">Page Name:</label>
+          <input type="text" class="form-control" id="pageName" name="pageName" value="<%= data.page_name %>" required>
+        </div>
+        <div class="col-md-4">
+          <label for="elementName">Element Name:</label>
+          <input type="text" class="form-control" id="elementName" name="elementName" value="<%= data.element_name %>"
+            required>
+        </div>
+        <div class="col-md-4">
+          <label for="topTitle">Top Title:</label>
+          <input type="text" class="form-control" id="topTitle" name="topTitle" value="<%= data.top_title %>">
+        </div>
+        <div class="col-md-4">
+          <label for="topDescription">Top Description:</label>
+          <textarea class="form-control" id="topDescription" name="topDescription"><%= data.top_description %></textarea>
+        </div>
+        <div class="col-md-4 mt-3">
+          <label for="deleteTopImage">Delete Top Image:</label>
+          <input type="checkbox" id="deleteTopImage" name="deleteTopImage">
+          <img src="/images/<%= data.top_image %>" alt="Existing Top Image" height="50">
+        </div>
+        <div class="col-md-4 mt-3">
+          <label for="topImage">Top Image:</label>
+          <input type="file" class="form-control" id="topImage" name="topImage" accept="image/*">
+        </div>
+      </div>
+
+      <!-- Iterate through content elements -->
+<% for (let i = 0; i < data.content.length; i++) { %>
+  <div class="card mt-3">
+    <div class="card-body">
+      <h5 class="card-title">Content Element <%= i + 1 %></h5>
+      <div class="form-group">
+        <label for="contentElementName<%= i %>">Content Element Name:</label>
+        <input type="text" class="form-control" id="contentElementName<%= i %>" name="contentElementName[]" value="<%= data.content[i].content_element_name %>" required>
+      </div>
+
+      <div class="form-group">
+        <label for="contentTitle<%= i %>">Content Title:</label>
+        <input type="text" class="form-control" id="contentTitle<%= i %>" name="contentTitle[]" value="<%= data.content[i].content_title %>" required>
+      </div>
+
+      <div class="form-group">
+        <label for="contentDescription<%= i %>">Content Description/Links:</label>
+        <textarea class="form-control" id="contentDescription<%= i %>" name="contentDescription[]"><%= data.content[i].content_description %></textarea>
+      </div>
+
+      <!-- Display existing content images and option to delete -->
+<!-- Display existing content images and option to delete -->
+<% if (data.content[i].content_images && data.content[i].content_images.length > 0) { %>
+  <div class="form-group">
+    <label>Delete Content Image(s):</label>
+    <div class="d-flex flex-wrap">
+      <% for (const contentImage of data.content[i].content_images) { %>
+        <div class="image-checkbox-container mx-2 mb-2">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input deleteContentImageCheckbox" type="checkbox" name="deleteContentImage[]" value="<%= contentImage %>" title="Click to delete the image">
+          </div>
+          <div class="image-thumbnail-container">
+            <img src="/images/<%= contentImage %>" alt="Existing Content Image" class="img-thumbnail resized-image" height="70">
+          </div>
+        </div>
+      <% } %>
+    </div>
+  </div>
+<% } %>
+
+
+
+
+      <!-- Content Image upload -->
+      <div class="form-group">
+        <label for="contentImage<%= i %>">Content Image:</label>
+        <input type="file" class="form-control-file" id="contentImage<%= i %>" name="contentImage[]" accept="image/*" data-index="<%= i %>">
+      </div>
+
+      <!-- Hidden input field for content image flag -->
+      <input type="hidden" name="contentImageFlags[]" id="contentImageFlags<%= i %>" value="0">
+
+      <!-- Delete Content Element option -->
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="deleteContentElement[]" value="<%= i %>">
+        <label class="form-check-label" for="deleteContentElement<%= i %>">Delete Content Element</label>
+      </div>
+    </div>
+  </div>
+<% } %>
+
+      <!-- Content Elements Container -->
+      <div id="contentElementsContainer"></div>
+
+      <!-- Button to add a new content element -->
+      <button type="button" class="btn btn-primary mt-3" id="addContentElementBtn">Add New Content Element</button>
+
+      <!-- Submit Button -->
+      <button type="submit" class="btn btn-success mt-3">Update</button>
+    </form>
+
+  </main>
+  </div>
+
+  <script src="/css/admin_sidebar_script.js"></script>
+</body>
+
+</html>

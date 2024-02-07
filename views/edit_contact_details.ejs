@@ -1,0 +1,201 @@
+<!-- edit_home_page_data.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Contact Details Data</title>
+  <!-- edit_home_page_data.ejs -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+  integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+<link rel="stylesheet" href="/css/admin_home.css">
+
+</head>
+
+<body>
+
+  <div class="container mt-5">
+
+    <!-- Sidebar -->
+    <div class="container">
+      <aside>
+        <div class="top">
+          <div class="logo">
+              <a href="/">
+                  <img src="/images/ngo_logo_new.png" alt="">
+              </a>
+              <h2>Happy Day</br>Foundation</h2>
+              <div class="close" id="close-btn">
+                  <span class="material-icons-sharp">
+                      close
+                  </span>
+              </div>
+          </div>
+
+      </div>
+        <div class="sidebar">
+          <a href="/admin/admin" class="active">
+            <span class="material-icons-sharp">
+              home
+            </span>
+            <h3>Home</h3>
+          </a>
+  
+          <a href="/admin/admin_home">
+            <span class="material-icons-sharp">
+              add_home
+            </span>
+  
+            <h3>Home Page</h3>
+          </a>
+  
+          <a href="/admin/admin_about_us">
+            <span class="material-icons-sharp">
+              groups_3
+            </span>
+            <h3>About Us</h3>
+          </a>
+  
+          <a href="/admin/admin_vision">
+            <span class="material-icons-sharp">
+              remove_red_eye
+            </span>
+            <h3>Vision and Mission</h3>
+          </a>
+  
+          <a href="/admin/admin_gallery">
+            <span class="material-icons-sharp">
+              collections
+            </span>
+            <h3>Gallery</h3>
+          </a>
+  
+          <a href="/admin/admin_activity">
+            <span class="material-icons-sharp">
+              local_activity
+            </span>
+            <h3>Activity</h3>
+          </a>
+  
+          <a href="/admin/admin_join_us">
+            <span class="material-icons-sharp">
+              handshake
+            </span>
+            <h3>Join Us</h3>
+          </a>
+  
+          <a href="/admin/social_media">
+            <span class="material-icons-sharp">
+              tag
+            </span>
+            <h3>Social Media</h3>
+          </a>
+  
+          <a href="/admin/admin_header">
+            <span class="material-icons-sharp">
+              important_devices
+            </span>
+            <h3>Header</h3>
+          </a>
+  
+          <a href="/admin/admin_footer">
+            <span class="material-icons-sharp">
+              display_settings
+            </span>
+            <h3>Footer</h3>
+          </a>
+  
+          <a href="/admin/admin_contact_us">
+            <span class="material-icons-sharp">
+              perm_phone_msg
+            </span>
+            <h3>Contact Details</h3>
+          </a>
+  
+  
+          <a href="/admin/admin_donation">
+            <span class="material-icons-sharp">
+              account_balance
+            </span>
+            <h3>Donation Details</h3>
+          </a>
+  
+  
+          <a href="/admin/slideShowImages">
+            <span class="material-icons-sharp">
+              perm_media
+            </span>
+            <h3>SlideShow Images</h3>
+          </a>
+  
+          <a href="/admin/usersDetails">
+            <span class="material-icons-sharp">
+              manage_accounts
+            </span>
+            <h3>User Details</h3>
+          </a>
+  
+          <a href="/admin/logout">
+            <span class="material-icons-sharp">
+              logout
+            </span>
+            <h3>Logout</h3>
+          </a>
+        </div>
+      </aside>
+  
+      <div class="right">
+        <div class="top">
+          <button id="menu-btn">
+            <span class="material-icons-sharp">
+              menu
+            </span>
+          </button>
+        </div>
+      </div>
+      <main>
+  <h1>Edit Contact Details Data</h1>
+  
+  <form action="/admin/update_contact_details?id=<%= data._id %>" method="post">
+    <!-- Render the existing data in the form -->
+    <label for="pageName">Page Name:</label>
+    <input type="text" id="pageName" name="pageName" value="<%= data.page_name %>" class="form-control" required>
+
+    <label for="elementName">Element Name:</label>
+    <input type="text" id="elementName" name="elementName" value="<%= data.element_name %>" class="form-control" required>
+
+    <label for="topTitle">Top Title:</label>
+    <input type="text" id="topTitle" name="topTitle" value="<%= data.top_title %>" class="form-control">
+
+    <label for="topDescription">Top Description:</label>
+    <textarea id="topDescription" name="topDescription" class="form-control"> <%= data.top_description %> </textarea>
+
+    <label for="contentElementName">Content Element Name:</label>
+    <textarea id="contentElementName" name="contentElementName[]" class="form-control"><%= data.content_element_name %></textarea>
+
+    <label for="whatsappNo">WhatsApp Number:</label>
+    <input type="number" name="whatsappNo" id="whatsappNo" class="form-control" value="<%= data.dynamicProperties.whatsappNo %>">
+
+    <label for="mail1">E-mail:</label>
+    <input type="email" name="mail1" id="mail1" class="form-control" value="<%= data.dynamicProperties.email1 %>">
+
+    <label for="mail2">E-mail:</label>
+    <input type="email" name="mail2" id="mail2" class="form-control" value="<%= data.dynamicProperties.email2 %>">
+
+    <label for="phoneNo">Phone Number:</label>
+    <input type="number" name="phoneNo" id="phoneNo" class="form-control" value="<%= data.dynamicProperties.phoneNo %>">
+    
+    <button type="submit" class="btn btn-success mt-3">Update</button>
+  </form>
+
+</main>
+</div>
+ 
+  <script src="/css/admin_sidebar_script.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</body>
+
+</html>

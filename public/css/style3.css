@@ -1,0 +1,307 @@
+html {
+    overflow-x: hidden;
+}
+body{
+    background-color:white;
+    overflow-x: hidden;
+    
+}
+*{
+    margin: 0;
+    font-family: Arial;
+    border: border-box;  
+    scroll-behavior: smooth; 
+}
+
+.BackgroundImages{
+    height: 100vh;
+    width: 100%;
+    margin-top: 140px;
+    /* background-image: url(img2.jpg); */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+@media (max-width: 1237px) {
+    .BackgroundImages {
+        height: 24vh;
+        margin-top: 137px;
+    }
+}
+
+.vission, .mission {
+    text-align: center;
+}
+.mission{
+    padding-top: 0px;
+}
+.vision{
+    padding-top: 49px;
+}
+.vission img, .mission img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px; 
+}
+
+.P1, .P2 {
+    text-align: left;
+    margin: 20px 0;
+}
+
+@media only screen and (min-width: 600px) {
+    
+    .vission, .mission {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: left;
+    }
+}
+
+
+.sec1 img, .sec3 img {
+    width: 200px;
+    height: auto;
+    -webkit-transition: transform 0.3s ease-in-out;
+    transition: transform 0.4s ease-in-out;
+}
+.sec2 img{
+    width: 300px;
+    padding-bottom: 17px;
+    height: auto;
+    -webkit-transition: transform 0.3s ease-in-out;
+    transition: transform 0.s ease-in-out;
+}
+.sec1:hover img, .sec2:hover img, .sec3:hover img {
+    transform: scale(1.07); 
+}
+.sec1 p{
+    font-size: 27px;
+}
+.sec3 p{
+    font-size: 26px;
+}
+h2 {
+    color: #007BFF;
+}
+
+.sec1, .sec2, .sec3 {
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+.sec1 img, .sec2 img, .sec3 img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.inf p {
+    border-radius: 10px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    line-height: 1.6;
+}
+
+@media screen and (min-width: 768px) {
+    .sec1, .sec2, .sec3 {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .sec1 img, .sec2 img, .sec3 img {
+        max-width: 45%;
+    }
+}
+
+.Message{
+    height: 75vh;
+    width: 100%;
+    background-image: url(s5.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: aqua;
+}
+@media (max-width: 1050px) {
+    .Message {
+        height: 45vh; 
+        margin-top: -124px; 
+    }
+}
+h2{
+    /* color:green; */
+    color: white;
+}
+.sec1{
+    display: flex;
+    flex-direction: row;
+}
+.sec2 {
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.sec2 p,.sec1 p,.sec3 p{
+    background: aqua;
+}
+.sec3{
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 50px;
+}
+.N1{
+    color: #d51f1f; 
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+.sec2,.sec1,.sec3 {
+    background-color: #ece6e6;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.sec2 img,.sec1 img,.sec3 img{
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+.sec2 p,.sec1 p,.sec3 p {
+    line-height: 1.6;
+    font-size: 25px;
+  font-weight: 600;
+  background-image: linear-gradient(to left, #442890, #66517a);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+
+
+h2 {
+    padding-top: 63px;
+    padding-left:24px;
+}
+img{
+    height: 100%;
+    width: 472px;
+}
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 21px;
+}
+
+.vissionmission {
+    background-color: #f9f9ab;
+    padding: 0px;
+}
+
+.vissionmission {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  .vission, .mission {
+    flex-basis: calc(50% - 0px);
+    text-align: center;
+  }
+  @media screen and (max-width: 480px) {
+    h2, h3 {
+      font-size: 18px;
+    }
+  }
+
+h2 {
+    font-size: 24px;
+    margin: 20px 0;
+  }
+  
+p {
+    font-size: 25px;
+}
+  
+.sec1, .sec2, .sec3 {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+.sec1 p, .sec2 p, .sec3 p {
+    flex-basis: calc(50% - 20px);
+    padding: 8px;
+    padding-left: 22px;
+  }
+  
+.sec1 img, .sec2 img, .sec3 img {
+    flex-basis: calc(50% - 20px);
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Responsive styles */
+@media screen and (max-width: 1024px) {
+    h2 {
+      font-size: 35px;
+    } 
+    h3{
+        font-size: 34px;
+    }
+    p {
+      font-size: 20px;
+    }
+  
+    .sec1 p, .sec2 p, .sec3 p {
+      flex-basis: 100%;
+      font-size: 28px;
+    }
+  
+    .sec1 img, .sec2 img, .sec3 img {
+      flex-basis: 100%;
+    }
+    .BackgroundImages{
+        height: 50vh;
+        width: 100%;
+        margin-top: 140px;
+        /* background-image: url(img2.jpg); */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        overflow: hidden;
+    }
+}
+.vission h2 {
+    padding-top: 5px;
+}
+.sec3{
+    padding-bottom: 30px;
+}
+.sec3 p {
+    padding-top: 0px;
+}
+
+
+@media screen and (max-width:375px) {
+    .BackgroundImages{
+        height: 35vh;
+        width: 100%;
+        margin-top: 204px;
+        /* background-image: url(img2.jpg); */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        overflow: hidden;
+    }
+}

@@ -1,0 +1,478 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Admin Page</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    integrity="sha384-GLhlTQ8iKu1rHN/9IgIaoKtu7qOxlMlZZ9Z50aWNrl5QFsqVA5PQhBvCCNhj" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/admin_home.css">
+  <script>
+       // Function to show success message
+       function showSuccessMessage() {
+      $('#successMessage').removeClass('d-none');
+    }
+
+    $(document).ready(function () {
+      // Add confirmation dialog for delete buttons
+      $('.danger-btn').click(function (e) {
+        e.preventDefault(); // Prevent the form from submitting immediately
+
+        // Display confirmation dialog
+        var result = confirm("Are you sure you want to delete this data?");
+
+        // If user clicks 'OK', proceed with form submission
+        if (result) {
+          $(this).closest('form').submit();
+        } else {
+          alert("Deletion canceled.");
+        }
+      });
+
+      // Show success message after form submission
+      if (window.location.search.includes('success=true')) {
+        showSuccessMessage();
+      }
+    });
+  </script>
+
+</head>
+
+<body>
+  
+    <!-- Sidebar -->
+    <div class="container">
+    <aside>
+      <div class="top">
+        <div class="logo">
+            <a href="/">
+                <img src="/images/ngo_logo_new.png" alt="">
+            </a>
+            <h2>Happy Day</br>Foundation</h2>
+            <div class="close" id="close-btn">
+                <span class="material-icons-sharp">
+                    close
+                </span>
+            </div>
+        </div>
+
+    </div>
+      <div class="sidebar">
+        <a href="/admin/admin" class="active">
+          <span class="material-icons-sharp">
+            home
+          </span>
+          <h3>Home</h3>
+        </a>
+
+        <a href="/admin/admin_home">
+          <span class="material-icons-sharp">
+            add_home
+          </span>
+
+          <h3>Home Page</h3>
+        </a>
+
+        <a href="/admin/admin_about_us">
+          <span class="material-icons-sharp">
+            groups_3
+          </span>
+          <h3>About Us</h3>
+        </a>
+
+        <a href="/admin/admin_vision">
+          <span class="material-icons-sharp">
+            remove_red_eye
+          </span>
+          <h3>Vision and Mission</h3>
+        </a>
+
+        <a href="/admin/admin_gallery">
+          <span class="material-icons-sharp">
+            collections
+          </span>
+          <h3>Gallery</h3>
+        </a>
+
+        <a href="/admin/admin_activity">
+          <span class="material-icons-sharp">
+            local_activity
+          </span>
+          <h3>Activity</h3>
+        </a>
+
+        <a href="/admin/admin_join_us">
+          <span class="material-icons-sharp">
+            handshake
+          </span>
+          <h3>Join Us</h3>
+        </a>
+
+        <a href="/admin/social_media">
+          <span class="material-icons-sharp">
+            tag
+          </span>
+          <h3>Social Media</h3>
+        </a>
+
+        <a href="/admin/admin_header">
+          <span class="material-icons-sharp">
+            important_devices
+          </span>
+          <h3>Header</h3>
+        </a>
+
+        <a href="/admin/admin_footer">
+          <span class="material-icons-sharp">
+            display_settings
+          </span>
+          <h3>Footer</h3>
+        </a>
+
+        <a href="/admin/admin_contact_us">
+          <span class="material-icons-sharp">
+            perm_phone_msg
+          </span>
+          <h3>Contact Details</h3>
+        </a>
+
+
+        <a href="/admin/admin_donation">
+          <span class="material-icons-sharp">
+            account_balance
+          </span>
+          <h3>Donation Details</h3>
+        </a>
+
+
+        <a href="/admin/slideShowImages">
+          <span class="material-icons-sharp">
+            perm_media
+          </span>
+          <h3>SlideShow Images</h3>
+        </a>
+
+        <a href="/admin/usersDetails">
+          <span class="material-icons-sharp">
+            manage_accounts
+          </span>
+          <h3>User Details</h3>
+        </a>
+
+        <a href="/admin/logout">
+          <span class="material-icons-sharp">
+            logout
+          </span>
+          <h3>Logout</h3>
+        </a>
+      </div>
+    </aside>
+
+    <div class="right">
+      <div class="top">
+        <button id="menu-btn">
+          <span class="material-icons-sharp">
+            menu
+          </span>
+        </button>
+      </div>
+      <div class="theme-toggler">
+        <span class="material-icons-sharp active">
+            light_mode
+        </span>
+        <span class="material-icons-sharp">
+            dark_mode
+        </span>
+    </div>
+    </div>
+    
+    <!-- Main Content -->
+    <main>
+      <h1>Edit and Add Data</h1>
+      <!-- Display Existing Data in a Table -->
+      <h2 class="mt-4">Existing Data</h2>
+      <div class="container mt-4 ">
+        <% for (const contentElement of data) { %>
+          <div class="card mb-4 box_style">
+            <div class="card-header">
+              <h5 class="mb-0">
+                <strong>Page: <span class="primary"><%= contentElement.page_name %></span>, Element: <span class="primary"><%= contentElement.element_name %></span></strong>
+              </h5>
+            </div>
+            <div class="card-body">
+              <h6 class="card-subtitle mb-2 text-muted"> <span class="primary">Title: <%= contentElement.top_title %></span>
+              </h6>
+              <!-- Description and Image in 2 Columns -->
+              <div class="row">
+                <div class="col-md-6">
+                  <p class="card-text"><strong>Description: </strong>
+                    <%= contentElement.top_description %>
+                  </p>
+                </div>
+                
+              </div>
+              <!-- whatsapp number in row 3 -->
+              <div class="row">
+                <div class="col-md-6">
+                  <p class="card-text"><strong>WhatsApp No.: </strong>
+                    <span class="success"><%= contentElement.dynamicProperties.whatsappNo %></span>
+                  </p>
+                </div>
+              </div>
+              <!-- email 1 in row 4 -->
+              <div class="row">
+                <div class="col-md-6">
+                  <p class="card-text"><strong>E-mail: </strong>
+                    <span class="warning"><%= contentElement.dynamicProperties.email1  %></span>
+                  </p>
+                </div>
+              </div>
+              <!-- email 2 in row 5 -->
+              <div class="row">
+                <div class="col-md-6">
+                  <p class="card-text"><strong>E-mail: </strong>
+                    <span class="primary"><%= contentElement.dynamicProperties.email2  %></span>
+                  </p>
+                </div>
+              </div>
+              <!-- phone no. in row 6 -->
+              <div class="row">
+                <div class="col-md-6">
+                  <p class="card-text"><strong>Phone No.: </strong>
+                    <span class="danger"><%= contentElement.dynamicProperties.phoneNo %></span>
+                  </p>
+                </div>
+              </div>
+
+
+
+              <!-- Edit and Delete Buttons -->
+              <div class="d-flex justify-content-between mt-3">
+                <form action="/admin/edit_contact_details" method="get">
+                  <input type="hidden" name="id" value="<%= contentElement._id %>">
+                  <button type="submit" class="btn btn-primary primary-btn">Edit</button>
+                </form>
+                <form action="/admin/delete_home_page_data" method="post">
+                  <input type="hidden" name="id" value="<%= contentElement._id %>">
+                  <button type="submit" class="btn btn-danger danger-btn">Delete</button>
+                </form>
+              </div>
+
+            </div>
+          </div>
+          <% } %>
+      </div>
+
+
+
+
+      <!-- Add New Data Form -->
+      <div class="container mt-4 box_style">
+        <h2 class="mt-4">Add New Data</h2>
+        <form action="/admin/add_contact_details" method="post">
+          <div class="form-group">
+            <!-- Page Information -->
+            <div class="mb-3">
+              <label for="pageName">Page Name:</label>
+              <input type="text" id="pageName" name="pageName" class="form-control" required
+                value="page_name (e.g. home_page)">
+            </div>
+
+            <div class="mb-3">
+              <label for="elementName">Element Name:</label>
+              <input type="text" id="elementName" name="elementName" class="form-control" required
+                value="element_name (e.g. home, about_us)">
+            </div>
+
+            <div class="mb-3">
+              <label for="topTitle">Top Title:</label>
+              <input type="text" id="topTitle" name="topTitle" class="form-control" value="">
+            </div>
+
+            <div class="mb-3">
+              <label for="topDescription">Top Description:</label>
+              <textarea id="topDescription" name="topDescription" class="form-control"></textarea>
+            </div>
+
+
+            <!-- Content data fields -->
+            <div class="content-elements mb-3">
+              <div class="content-element">
+                <label for="contentElementName">Content Element Name:</label>
+                <input type="text" id="contentElementName" name="contentElementName[]" class="form-control" required
+                  value="content_element_name (e.g. partners,story)">
+
+                <label for="whatsappNo">WhatsApp No.:</label>
+                <input type="number" id="whatsappNo" name="whatsappNo" class="form-control" required value="">
+
+                <label for="mail1">E-mail:</label>
+                <input type="email" id="mail1" name="mail1" class="form-control" required value="">
+
+                <label for="mail2">E-mail:</label>
+                <input type="email" id="mail2" name="mail2" class="form-control" required value="">
+
+                <label for="phoneNo">Phone No.:</label>
+                <input type="number" id="phoneNo" name="phoneNo" class="form-control" required value="">
+
+              </div>
+            </div>
+
+            <!-- Button to add more content elements -->
+            <!-- <button type="button" class="btn btn-primary" id="addContentElement">
+              <i class="fas fa-plus"></i> Add More Content Element
+            </button> -->
+          </div>
+
+          <button type="submit" class="btn btn-primary">
+            <i class="fas fa-check"></i> Add all the elements
+          </button>
+        </form>
+
+        <div id="successMessage" class="alert alert-success d-none mt-3">
+          Data added successfully!
+        </div>
+      </div>
+    </main>
+
+    
+  </div>
+
+
+
+
+
+
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <script>
+    $(document).ready(function () {
+      $('[data-toggle="tooltip"]').tooltip();
+    });
+  </script>
+
+
+<script>
+  document.getElementById('addContentElement').addEventListener('click', function () {
+    const contentElementsContainer = document.querySelector('.content-elements');
+
+    // Create a new content element structure
+    const newContentElement = document.createElement('div');
+    newContentElement.className = 'content-element mb-3'; // Add the 'mb-3' class for margin-bottom
+
+    const contentElementNameLabel = document.createElement('label');
+    contentElementNameLabel.htmlFor = 'contentElementName';
+    contentElementNameLabel.textContent = 'Content Element Name:';
+    newContentElement.appendChild(contentElementNameLabel);
+
+    const contentElementNameInput = document.createElement('input');
+    contentElementNameInput.type = 'text';
+    contentElementNameInput.name = 'contentElementName[]';
+    contentElementNameInput.className = 'form-control'; // Add the 'form-control' class
+    contentElementNameInput.required = true;
+    newContentElement.appendChild(contentElementNameInput);
+
+    const whatsappNoLabel = document.createElement('label');
+    whatsappNoLabel.htmlFor = 'whatsappNo';
+    whatsappNoLabel.textContent = 'WhatsApp No.:';
+    newContentElement.appendChild(whatsappNoLabel);
+
+    const whatsappNoInput = document.createElement('input');
+    whatsappNoInput.type = 'number';
+    whatsappNoInput.name = 'whatsappNo[]'; // Adjust the name to an array
+    whatsappNoInput.className = 'form-control'; // Add the 'form-control' class
+    whatsappNoInput.required = true;
+    newContentElement.appendChild(whatsappNoInput);
+
+    const mail1Label = document.createElement('label');
+    mail1Label.htmlFor = 'mail1';
+    mail1Label.textContent = 'E-mail:';
+    newContentElement.appendChild(mail1Label);
+
+    const mail1Input = document.createElement('input');
+    mail1Input.type = 'email';
+    mail1Input.name = 'mail1[]'; // Adjust the name to an array
+    mail1Input.className = 'form-control'; // Add the 'form-control' class
+    mail1Input.required = true;
+    newContentElement.appendChild(mail1Input);
+
+    const mail2Label = document.createElement('label');
+    mail2Label.htmlFor = 'mail2';
+    mail2Label.textContent = 'E-mail:';
+    newContentElement.appendChild(mail2Label);
+
+    const mail2Input = document.createElement('input');
+    mail2Input.type = 'email';
+    mail2Input.name = 'mail2[]'; // Adjust the name to an array
+    mail2Input.className = 'form-control'; // Add the 'form-control' class
+    mail2Input.required = true;
+    newContentElement.appendChild(mail2Input);
+
+    const phoneNoLabel = document.createElement('label');
+    phoneNoLabel.htmlFor = 'phoneNo';
+    phoneNoLabel.textContent = 'Phone No.:';
+    newContentElement.appendChild(phoneNoLabel);
+
+    const phoneNoInput = document.createElement('input');
+    phoneNoInput.type = 'number';
+    phoneNoInput.name = 'phoneNo[]'; // Adjust the name to an array
+    phoneNoInput.className = 'form-control'; // Add the 'form-control' class
+    phoneNoInput.required = true;
+    newContentElement.appendChild(phoneNoInput);
+
+    // Update element IDs to ensure uniqueness
+    const index = contentElementsContainer.children.length + 1;
+    newContentElement.querySelectorAll('[name]').forEach((element) => {
+      element.name = element.name.replace(/\[\d+\]/, `[${index}]`);
+    });
+
+    // Append the new content element to the container
+    contentElementsContainer.appendChild(newContentElement);
+  });
+</script>
+
+
+  <!-- ... (other HTML code) ... -->
+
+  <script>
+    // Function to show success message
+    function showSuccessMessage() {
+   $('#successMessage').removeClass('d-none');
+ }
+
+ $(document).ready(function () {
+   // Add confirmation dialog for delete buttons
+   $('.danger-btn').click(function (e) {
+     e.preventDefault(); // Prevent the form from submitting immediately
+
+     // Display confirmation dialog
+     var result = confirm("Are you sure you want to delete this data?");
+
+     // If user clicks 'OK', proceed with form submission
+     if (result) {
+       $(this).closest('form').submit();
+     } else {
+       alert("Deletion canceled.");
+     }
+   });
+
+   // Show success message after form submission
+   if (window.location.search.includes('success=true')) {
+     showSuccessMessage();
+   }
+ });
+</script>
+
+  <!-- ... (other HTML code) ... -->
+
+  <script src="/css/admin_sidebar_script.js"></script>
+</body>
+
+</html>

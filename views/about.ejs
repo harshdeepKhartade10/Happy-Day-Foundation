@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style2.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+</head>
+<body>
+  <%- include("partials/header.ejs", { headerData: data.headerData,socialMediaData: data.socialMediaData }) %>
+        <div id="about-top">
+          <% if (data.aboutUsData.element_name === 'about_us') { %>
+            <img class="cover"  src="/images/<%= data.aboutUsData.top_image %>" alt="Existing Content Image">
+            <% } %>
+            <h1> <%= data.aboutUsData.top_title %></h1>
+
+            
+
+        </div>
+        <div id="container" class="animation-target box">
+          <% for (const contentElement of data.aboutUsData.content) { %>
+            <% if (contentElement.content_element_name === 'story') { %>
+               <h1> <%= contentElement.content_title %></h1>
+            <% } %>
+          <% } %>
+          <br>
+          <div class="row">
+            <!-- <div class="About-img"> -->
+              <% for (const contentElement of data.aboutUsData.content) { %>
+                <% if (contentElement.content_element_name === 'story') { %>
+                  <% for (const contentImage of contentElement.content_images) { %>
+                    <img src="/images/<%= contentImage %>" alt="Existing Content Image" class="img_style">
+                  <% } %>
+                <% } %>
+              <% } %>
+            <!-- </div> -->
+            <div class="About-para">
+              <% for (const contentElement of data.aboutUsData.content) { %>
+                <% if (contentElement.content_element_name === 'story') { %>
+                  <%= contentElement.content_description %>
+                <% } %>
+              <% } %>
+              
+              <!-- <p class="bot-line">Come and Join Us to really make the Diiference and experience the joy of bringing smile to peoples face</p> -->
+            
+          </div>
+        </div>
+        </div>
+        <div id="vision-mission">
+          <div class="col-md-6 vision" class="animation-target">
+            
+
+          <% for (const contentElement of data.aboutUsData.content) { %>
+            <% if (contentElement.content_element_name === 'vision') { %>
+              <% for (const contentImage of contentElement.content_images) { %>
+                <img  width="40px" height="40px" src="/images/<%= contentImage %>" alt="Existing Content Image" >
+              <% } %>
+            <% } %>
+          <% } %>
+            <% for (const contentElement of data.aboutUsData.content) { %>
+              <% if (contentElement.content_element_name === 'vision') { %>
+                <h3><%= contentElement.content_title %></h3>
+              <% } %>
+            <% } %>
+            <% for (const contentElement of data.aboutUsData.content) { %>
+              <% if (contentElement.content_element_name === 'vision') { %>
+                <p><%= contentElement.content_description %></p>
+              <% } %>
+            <% } %>
+          </div>
+          <div class="col-md-6 mission" class="animation-target">
+            <% for (const contentElement of data.aboutUsData.content) { %>
+              <% if (contentElement.content_element_name === 'mission') { %>
+                <% for (const contentImage of contentElement.content_images) { %>
+                  <img  width="40px" height="40px" src="/images/<%= contentImage %>" alt="Existing Content Image" >
+                <% } %>
+              <% } %>
+            <% } %>
+            <% for (const contentElement of data.aboutUsData.content) { %>
+              <% if (contentElement.content_element_name === 'mission') { %>
+                <h3><%= contentElement.content_title %></h3>
+              <% } %>
+            <% } %>
+
+            <% for (const contentElement of data.aboutUsData.content) { %>
+              <% if (contentElement.content_element_name === 'mission') { %>
+                <p><%= contentElement.content_description %></p>
+              <% } %>
+            <% } %>
+          </div>
+        </div>
+        <div class="glossaryh3 animation-target" >
+          <h3>Glossary</h3>
+        </div>
+        
+      
+
+        <div class="images-glossary">
+          <div class="image-container">
+            <div class="image-wrapper">
+              <% for (const contentElement of data.aboutUsData.content) { %>
+                <% if (contentElement.content_element_name === 'glossary') { %>
+                  <% for (const contentImage of contentElement.content_images) { %>
+              <div>
+                <img src="/images/<%= contentImage %>" alt="">
+              </div>
+              <% } %>
+              <% } %>
+            <% } %>
+            </div>
+          </div>
+       
+        </div>
+
+
+
+        <%- include("partials/footer.ejs",{footerData: data.footerData, socialMediaData: data.socialMediaData ,contactUsData: data.contactUsData}) %>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/css/script.js"></script>
+  </body>
+</html>

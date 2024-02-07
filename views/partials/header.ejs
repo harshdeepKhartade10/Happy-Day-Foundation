@@ -1,0 +1,89 @@
+<head>
+  <link rel="stylesheet" href="/css/header.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-z7imDlRABbbVc6vDcFcA8u2uAcL5Hz7jjp11NWNHzH9FU/mqtpeTkDViS3rrXPp4"
+    crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="css/common_style_text.css">
+</head>
+<div class="navbar_top">
+  <marquee>
+    <p>Become a volunteer- <a style="color: orange;" href="/public/join">click here</a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+      &nbsp; Give Feedback-<a style="color: orange;"
+        href="https://docs.google.com/forms/d/e/1FAIpQLScprsI5QF0_yA7OsuCdbkZdvoxRwl_R_2dIM-cCpHeDN3sqQQ/viewform?usp=sf_link">click
+        here</a> </p>
+
+  </marquee>
+  <div class="navbar1">
+    <div class="logo">
+      <a href="/">
+      <img src="/images/<%= headerData.top_image %>" alt="">
+    </a>
+    </div>
+    <div class="org_sec2">
+      <div class="org_sec">
+        <p class="org"><%= headerData.top_title %></p>
+      </div>
+    </div>
+  </div>
+  <nav class="navbar navbar-expand-md  navbar-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link" href="/public/ourstory" id="navbardrop">
+            About Us
+          </a>
+          <!-- <div class="dropdown-menu">
+            <a class="dropdown-item" href="/public/ourstory">Our story</a>
+            <a class="dropdown-item" href="#">Our Team</a>
+            <a class="dropdown-item" href="#">Inspiration</a>
+          </div> -->
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/public/vision">Vision & Mission</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/public/gallery">Gallery</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/public/activity">Activities</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#contactusfooter">Contact Us</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto donate_btn">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+            Donate
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="/public/donate">Education</a>
+            <a class="dropdown-item" href="/public/donate">Health</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+
+
+<div class="stickyicon-list">
+  <!-- <a href="https://facebook.com" class="facebook"> -->
+  <% for (const contentElement of socialMediaData.content) { %>
+      <a href="<%= contentElement.content_description %>" class="<%= contentElement.content_title %>">
+        <i class="fa fa-<%= contentElement.content_title %>"></i>
+          <% } %>
+           
+      </a>
+</div>

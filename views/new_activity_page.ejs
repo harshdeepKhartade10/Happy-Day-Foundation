@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/style5_part2.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"> -->
+<style>
+  #carouselExampleAutoplaying .carousel-item {
+      transition: opacity 0.01s ease-in-out; /* Adjust the duration (1s) as needed */
+  }
+</style>
+</head>
+
+<body class="body">
+  <%- include("partials/header.ejs", { headerData: data.headerData,socialMediaData: data.socialMediaData }) %>
+
+    <div class="container">
+      <div class="top">
+        <img class="cover" src="/images/<%= data.contentElement.top_image %>" alt="">
+        <h2 class="title">
+          <%= data.contentElement.top_title %>
+        </h2>
+        <p class="dis">
+          <%= data.contentElement.top_description %>
+        </p>
+      </div>
+
+      <% for (let i=0; i < data.contentElement.content.length; i++) { %>
+        <% const content=data.contentElement.content[i]; %>
+          <div class="<%= i % 2 === 0 ? 'content_left' : 'content_right' %>">
+            <img class="img_width <%= i % 2 === 0 ? 'img_right' : 'img_left' %>"
+              src="/images/<%= content.content_images[0] %>" alt="">
+            <div class="describe">
+              <h3>
+                <%= content.content_title %>
+              </h3>
+              <p>
+                <%= content.content_description %>
+              </p>
+            </div>
+          </div>
+          <% } %>
+
+
+
+
+          <div id="carouselExampleAutoplaying" class="carousel slide carousel-zoom" data-bs-ride="carousel" data-bs-interval="2000" >
+            <div class="carousel-inner slideshow-container" >
+              <% if (data.activityImages && data.activityImages.content) { %>
+                <% for (const contentElement of data.activityImages.content) { %>
+                  <% if (contentElement && contentElement.content_images) { %>
+                    <% let isFirstImage = true; %>
+                    <% for (const contentImage of contentElement.content_images) { %>
+                      
+                      <div class="carousel-item <%= isFirstImage ? 'active' : '' %>">
+                        <img src="/images/<%= contentImage %>" class="d-block w-100" alt="Existing Content Image">
+                      </div>
+                      <% isFirstImage = false; %>
+                    <% } %>
+                  <% } %>
+                <% } %>
+              <% } %>
+              
+            </div>
+            <!-- Controls... -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden"></span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden"></span>
+          </button>
+        </div>
+          
+    </div>
+
+    </div>
+
+    <%- include("partials/footer.ejs",{footerData: data.footerData, socialMediaData: data.socialMediaData
+      ,contactUsData: data.contactUsData}) %>
+      <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script> -->
+      <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script> -->
+      <!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script> -->
+      <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script> -->
+      <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+      <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"> -->
+      <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script> -->
+      <!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script> -->
+      <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script> -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.1/gsap.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.1/ScrollTrigger.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+
+      <script src="/css/script4.js"></script>
+</body>
+
+</html>
